@@ -1,19 +1,13 @@
 import uvicorn
 from fastapi import FastAPI
-from database.database import engine, SessionLocal
+from database.database import engine
 from database.models import Base
+from .routers import image
 
-
-
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-
+# from dependencies import *
 
 app = FastAPI()
+app.include_router(image.router)
 
 
 @app.get("/")
