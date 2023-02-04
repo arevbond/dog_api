@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+</head>
+<body>
+    <h1>Home Page</h1>
+
+    <div class="images">
+        {% for img_url in imgs_url %}
+          <div class="image"><img src="{{ img_url }}" alt="Dog picture"></div>
+        {% endfor %}
+    </div>
+    <a href="/home/"><button>Reload</button></a>
+</body>
+</html>
