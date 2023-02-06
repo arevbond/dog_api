@@ -32,7 +32,7 @@ def insert_images_and_category_data(abs_path: str):
             session.add(category)
             for file in files:
                 file_url = os.path.join(current_dir, file)
-                image = models.Image(image_url=file_url, category_id=n)
+                image = models.Image(url=file_url, category_id=n)
                 session.add(image)
             n += 1
     session.commit()
