@@ -1,4 +1,6 @@
-import datetime
+from datetime import datetime
+
+from typing import Optional
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
@@ -33,9 +35,13 @@ class Image(Base):
 
 
 class User(Base):
-    __tablename__ = "users"
+    __tablename__ = "user"
 
     id: Mapped[int] = mapped_column(primary_key=True)
     username: Mapped[str]
-    password: Mapped[str]
-    create_at: Mapped[datetime.datetime]
+    email: Mapped[str]
+    hashed_password: Mapped[str]
+    create_at: Mapped[datetime] = mapped_column(default=datetime.now)
+    is_active: Mapped[Optional[bool]]
+    is_superuser: Mapped[Optional[bool]]
+    is_verified: Mapped[Optional[bool]]
