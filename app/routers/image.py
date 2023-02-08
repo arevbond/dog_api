@@ -5,6 +5,10 @@ from sqlalchemy.orm import Session
 
 from ..dependencies import get_db, get_image
 from database import models
+from ..auth.users import fastapi_users
+from ..auth.users import User
+
+current_user = fastapi_users.current_user(active=True)
 
 router = APIRouter(
     prefix="/api/breeds/image/random",
@@ -30,4 +34,5 @@ async def get_dog_image(images_url: list[str] = Depends(get_image), category: st
     if len(images_url) == 1:
         return {"status": "success", "image": images_url}
     return {"status": "success", "images": images_url}
+
 

@@ -21,7 +21,7 @@ def get_image(db: Session = Depends(get_db), n: int = 1):
     images = db.scalars(select(models.Image).order_by(func.random()).limit(n)).all()
     if not images:
         raise HTTPException(status_code=501, detail="Oops! Someone stole our images!")
-    return [image.image_url for image in images]
+    return [image.url for image in images]
 
 # def get_image(db: Session = Depends(get_db)):
 #     """Возвращаие url image"""
