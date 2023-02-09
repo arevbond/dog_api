@@ -7,9 +7,19 @@ services:
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: test_db
+      POSTGRES_DB: main_db
     ports:
       - "5432:5432"
+  db_test:
+    container_name: pg_container_for_test
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: test_db
+    ports:
+      - "6000:6000"
   pgadmin:
     container_name: pgadmin4_container
     image: dpage/pgadmin4

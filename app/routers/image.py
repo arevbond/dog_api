@@ -29,7 +29,8 @@ router = APIRouter(
 #
 
 @router.get("/")
-async def get_dog_image(images_url: list[str] = Depends(get_image), category: str | None = None):
+async def get_dog_image(user: User = Depends(current_user), images_url: list[str] = Depends(get_image),
+                        category: str | None = None):
     """ """
     if len(images_url) == 1:
         return {"status": "success", "image": images_url}
