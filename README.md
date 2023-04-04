@@ -16,5 +16,5 @@
 
 ***
 1. Написать тесты для fastapi-users routers
-2. Посмотреть про websockets
+
 
