@@ -3,7 +3,7 @@ services:
   db:
     container_name: pg_container
     image: postgres
-    restart: always
+    restart: no
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
@@ -13,7 +13,7 @@ services:
   db_test:
     container_name: pg_container_for_test
     image: postgres
-    restart: always
+    restart: no
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
@@ -23,7 +23,7 @@ services:
   pgadmin:
     container_name: pgadmin4_container
     image: dpage/pgadmin4
-    restart: always
+    restart: no
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: root
